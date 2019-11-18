@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.mboard.dao.Dao">
+
+    <select id="content" resultType="kr.co.mboard.dto.Dto">
+        SELECT * FROM BOARD WHERE ID=#{param1}
+    </select>
+    
+    <select id="update" resultType="kr.co.mboard.dto.Dto">
+        SELECT * FROM BOARD WHERE ID=#{param1}
+    </select>
+    
+    <update id="update_ok">
+        UPDATE BOARD SET NAME=#{param1}, TITLE=#{param2}, CONTENT=#{param3} WHERE ID=#{param4} 
+    </update>
+    
+	<insert id="write">
+		INSERT INTO BOARD(NAME,TITLE,CONTENT,WRITEDAY) VALUES(#{param1},#{param2},#{param3},now())
+	</insert>
+
+    <select id="list" resultType="kr.co.mboard.dto.Dto">
+        SELECT * FROM BOARD ORDER BY ID DESC
+    </select>
+    
+    <delete id="delete">
+        DELETE FROM BOARD WHERE ID=#{PARAM1}
+    </delete>
+</mapper>
