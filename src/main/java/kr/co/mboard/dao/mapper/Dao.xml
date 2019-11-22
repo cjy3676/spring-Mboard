@@ -26,6 +26,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <delete id="delete">
-        DELETE FROM BOARD WHERE ID=#{PARAM1}
+        DELETE FROM BOARD WHERE ID=#{param1}
     </delete>
+    
+    <update id="readnumup">
+       update board set 조회수필드=조회수필드+1 where id=#{param1}
+    </update>
+    
 </mapper>

@@ -16,4 +16,6 @@ public interface Dao {
 	public Dto update(String id);
 	
 	public void update_ok(String name, String title, String content, String id);
+	
+	public void readnumup(String id);
 }

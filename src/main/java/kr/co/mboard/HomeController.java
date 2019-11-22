@@ -70,6 +70,7 @@ public class HomeController {
 	public String content(HttpServletRequest request, Model model) {
 		Dao dao = sqlSession.getMapper(Dao.class);
 		Dto dto = dao.content(request.getParameter("id"));
+		dao.readnumup(request.getParameter("id"));
 		model.addAttribute("dto", dto);
 		return "/content";
 	}
@@ -78,7 +79,7 @@ public class HomeController {
 	public String delete(HttpServletRequest request) {
 		Dao dao = sqlSession.getMapper(Dao.class);
 		dao.delete(request.getParameter("id"));
-		return "reirect:/list";
+		return "redirect:/list";
 	}
 	
 	@RequestMapping("/update")
